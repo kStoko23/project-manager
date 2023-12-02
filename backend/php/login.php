@@ -21,7 +21,7 @@ try {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Check if the provided password matches the one in the database
-        if ($user['password'] === $password) {
+        if (password_verify($password, $user['password'])) {
             // Set the user's ID in the session
             $_SESSION['user_id'] = $user['id'];
             // Redirect to the main page

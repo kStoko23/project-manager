@@ -14,19 +14,20 @@ if ($password !== $repeat_password) {
 
 try {
 
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $stmt = $pdo->prepare("INSERT INTO 
         users (username, password, email, role_id) 
         VALUES 
         (:username, :password, :email, :role_id)");
     $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-    $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+    $stmt->bindParam(':password', $hashed_password, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->bindParam(':role_id', $role_id, PDO::PARAM_INT);
 
     $stmt->execute();
 
-    header('Location: ../../frontend/html/login.php?registration=success');
+    header('Location: /index.php');
     exit();
 } catch (PDOException $e) {
     die("Błąd rejestracji: " . $e->getMessage());
