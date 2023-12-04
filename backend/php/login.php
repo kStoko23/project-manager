@@ -22,8 +22,10 @@ try {
 
         // Check if the provided password matches the one in the database
         if (password_verify($password, $user['password'])) {
-            // Set the user's ID in the session
+            // Set the user's ID & username in the session
             $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role_id'] = $user['role_id'];
             // Redirect to the main page
             header('Location: ../../index.php');
             exit();
