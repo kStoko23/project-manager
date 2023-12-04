@@ -1,34 +1,118 @@
-/* Styl ogólny tabel */
+/* Resetowanie podstawowych stylów */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* lub inna czcionka według preferencji */
+  line-height: 1.6;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  padding: 10px 20px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#menu-left,
+#menu-right {
+  display: flex;
+  align-items: center;
+}
+
+#logo img {
+  height: 50px;
+  margin-right: 20px;
+}
+
+#menu-links a,
+#menu-right a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color 0.3s;
+}
+
+#menu-links a:hover,
+#menu-right a:hover {
+  color: #ddd;
+}
+
+#user-name {
+  margin-right: 10px;
+}
+
+#user-avatar img {
+  height: 40px;
+  border-radius: 50%;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-/* Styl nagłówków tabel */
 th {
-  background-color: #4caf50;
+  background-color: #007bff;
   color: white;
   text-align: left;
-  padding: 8px;
+  padding: 12px 15px;
 }
 
-/* Styl komórek tabel */
 td {
-  padding: 8px;
+  padding: 12px 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 
-/* Styl wierszy tabel przy najechaniu kursorem */
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
 tr:hover {
-  background-color: #f5f5f5;
+  background-color: #f1f1f1;
 }
 
 #all-projects,
 #my-projects {
+  padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+}
+
+@media (max-width: 768px) {
+  #menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #menu-left,
+  #menu-right {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  #menu-links,
+  #menu-right {
+    flex-grow: 1;
+    text-align: right;
+  }
+
+  #menu-links a,
+  #menu-right a {
+    display: block;
+    margin-bottom: 5px;
+  }
 }
