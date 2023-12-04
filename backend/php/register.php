@@ -27,7 +27,7 @@ try {
 
     $stmt->execute();
 
-    header('Location: /index.php');
+    header('Location: /project_manager/index.php');
     exit();
 } catch (PDOException $e) {
     die("Błąd rejestracji: " . $e->getMessage());
