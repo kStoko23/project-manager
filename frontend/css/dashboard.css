@@ -36,12 +36,13 @@ body {
   color: white;
   text-decoration: none;
   margin-right: 20px;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.2s;
 }
 
 #menu-links a:hover,
 #menu-right a:hover {
   color: #ddd;
+  transform: scale(1.02);
 }
 
 #user-name {
@@ -74,16 +75,21 @@ td {
   border-top: 1px solid #ddd;
 }
 
+tr:not(:first-child) {
+  transition: background-color 0.3s, transform 0.2s;
+}
 tr:nth-child(even) {
   background-color: #f8f8f8;
 }
 
-tr:hover {
+tr:not(:first-child):hover {
   background-color: #f1f1f1;
+  transform: scale(1.02);
 }
 
 #all-projects,
-#my-projects {
+#my-projects,
+#projects-container {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -115,4 +121,31 @@ tr:hover {
     display: block;
     margin-bottom: 5px;
   }
+}
+
+#filter-options {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#filter-options button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#filter-options button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#filter-options button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
 }
