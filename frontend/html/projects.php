@@ -42,15 +42,11 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
     <div id="projects-container">
-        <div id="filter-options">
-            <button id="all-projects-btn">Wszystkie Projekty</button>
-            <button id="my-projects-btn">Moje Projekty</button>
-        </div>
-
+        
     </div>
     <script>
         window.userRoleId = <?php echo json_encode($_SESSION['role_id']); ?>;
     </script>
-    <script src="../../frontend/js/projects.js"></script>
+    <script src="../../frontend/js/allProjects.js"></script>   
 </body>
 </html>
