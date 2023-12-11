@@ -54,3 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => console.error("Błąd:", error));
 });
+function createProject() {
+  window.location.href = `frontend/html/new_project.php`;
+}

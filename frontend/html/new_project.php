@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekty</title>
+    <title>Moje projekty</title>
     <link rel="stylesheet" href="../../frontend/css/dashboard.css">
 </head>
 <body>
@@ -38,12 +38,20 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
-    <div id="projects-container">
-        
+    <div id="new-project-form">
+        <form id="create_project_form">
+            <input type="text" id="new_project_name" name="project_name" placeholder="Nazwa projektu"><br>
+            <input type="date" id="new_start_date" name="start_date" placeholder="Data rozpoczęcia"><br>
+            <input type="date" id="new_end_date" name="end_date" placeholder="Data zakończenia"><br>
+            <select id="new_status" name="status">
+                <option value="Ongoing">Trwający</option>
+                <option value="Suspended">Zawieszony</option>
+                <option value="Completed">Zrobiony</option>
+            </select><br>
+            <textarea id="new_description" name="description" placeholder="Opis projektu"></textarea><br>
+            <button type="button" onclick="createProject()">Utwórz projekt</button>
+        </form>
     </div>
-    <script>
-        window.userRoleId = <?php echo json_encode($_SESSION['role_id']); ?>;
-    </script>
-    <script src="../../frontend/js/allProjects.js"></script>   
+    <script src="../../frontend/js/new_project.js"></script>   
 </body>
 </html>

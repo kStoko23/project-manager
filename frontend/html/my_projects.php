@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekty</title>
+    <title>Moje projekty</title>
     <link rel="stylesheet" href="../../frontend/css/dashboard.css">
 </head>
 <body>
@@ -31,9 +31,6 @@ if (!isset($_SESSION['user_id'])) {
             <div id="user">
                 <div id="user-name">
                     <?php echo $_SESSION['username']; ?>
-                </div>
-                <div id="user-avatar">
-                    <img src="../../frontend/img/avatar.png" alt="avatar">
                 </div>
             </div>
             <div id="menu-links">
