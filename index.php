@@ -31,9 +31,6 @@ if (!isset($_SESSION['user_id'])) {
                 <div id="user-name">
                     <?php echo $_SESSION['username']; ?>
                 </div>
-                <div id="user-avatar">
-                    <img src="frontend/img/avatar.png" alt="avatar">
-                </div>
             </div>
             <div id="menu-links">
                 <a href="backend/php/logout.php">Wyloguj</a>
@@ -46,6 +43,9 @@ if (!isset($_SESSION['user_id'])) {
 
     <div id="my-projects">
         
+    </div>
+    <div id="new-project">
+        <button id="new-project-button" onclick="createProject()">Nowy projekt</button>
     </div>
     <script>
         window.userRoleId = <?php echo json_encode($_SESSION['role_id']); ?>;
