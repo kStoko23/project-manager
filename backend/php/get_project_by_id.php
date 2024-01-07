@@ -12,6 +12,6 @@ if ($projectId) {
     
     echo json_encode($projectDetails);
 } else {
-    // Obsługa błędu, gdy nie ma ID projektu
+    echo json_encode([]);
 }
 ?>

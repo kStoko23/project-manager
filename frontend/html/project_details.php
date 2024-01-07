@@ -48,6 +48,9 @@ if (!isset($_SESSION['user_id'])) {
     <div id="project_container">
 
     </div>
+    <div id="task_container">
+
+    </div>
     <div id="edit_project_form" style="display: none;">
         <form id="editForm">
             <input type="text" id="edit_project_name" name="project_name"><br>
@@ -66,5 +69,6 @@ if (!isset($_SESSION['user_id'])) {
         window.userId = <?php echo json_encode($_SESSION['user_id']); ?>;
     </script>
     <script src="../../frontend/js/project_details.js"></script>   
+    <script src="../../frontend/js/tasks.js"></script>
 </body>
 </html>

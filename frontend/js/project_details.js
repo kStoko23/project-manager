@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (projectId) {
     fetchProjectDetails(projectId);
   } else {
-    // Obsługa błędu lub wyświetlenie komunikatu, gdy ID projektu nie jest dostępne
+    const projectContainer = document.getElementById("project_container");
+    projectContainer.innerHTML = "<p>Projekt nie istnieje</p>";
   }
 });
-
 function fetchProjectDetails(projectId) {
   fetch(`../../backend/php/get_project_by_id.php?id=${projectId}`)
     .then((response) => response.json())
@@ -70,14 +70,11 @@ function displayProjectDetails(project) {
 }
 
 function editProject() {
-  // Ukryj kontener z informacjami o projekcie
   document.getElementById("project_container").style.display = "none";
   const project = currentProject;
-  // Pokaż formularz edycji
   const editForm = document.getElementById("edit_project_form");
   editForm.style.display = "block";
 
-  // Wypełnij formularz aktualnymi danymi projektu
   document.getElementById("edit_project_name").value = project.project_name;
   document.getElementById("edit_start_date").value = project.start_date;
   document.getElementById("edit_end_date").value = project.end_date;
@@ -93,13 +90,10 @@ function validateForm() {
   const status = document.getElementById("edit_status").value;
   const description = document.getElementById("edit_description").value;
 
-  // Walidacja nazwy projektu
   if (!projectName.trim()) {
     alert("Nazwa projektu jest wymagana.");
     isValid = false;
   }
-
-  // Walidacja dat
   if (!startDate) {
     alert("Data rozpoczęcia jest wymagana.");
     isValid = false;

@@ -126,7 +126,8 @@ tr:not(:first-child):hover {
   color: #666;
   line-height: 1.6;
 }
-#project_container {
+#project_container,
+#task_container {
   background-color: #f8f8f8;
   padding: 20px;
   border-radius: 10px;
@@ -134,7 +135,15 @@ tr:not(:first-child):hover {
   max-width: 800px;
   margin: 20px auto;
 }
-
+.task {
+  border-bottom: 1px solid #ddd;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 10px 0;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 .project-detail {
   display: flex;
   justify-content: space-between;
@@ -156,7 +165,7 @@ tr:not(:first-child):hover {
 }
 .edit-button,
 .delete-button {
-  background-color: #007bff; /* Niebieski kolor tła */
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -168,10 +177,10 @@ tr:not(:first-child):hover {
 
 .edit-button:hover,
 .delete-button:hover {
-  background-color: #0056b3; /* Ciemniejszy niebieski kolor tła przy najechaniu */
+  background-color: #0056b3;
 }
 .modal {
-  display: none; /* Ukryj modal, dopóki nie zostanie wywołany */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -207,9 +216,8 @@ tr:not(:first-child):hover {
 .modal-content button:hover {
   background-color: #0056b3;
 }
-/* Styl formularza edycji */
 #edit_project_form {
-  background-color: #f8f8f8; /* Jasnoszary kolor tła */
+  background-color: #f8f8f8;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -226,7 +234,7 @@ tr:not(:first-child):hover {
   border: 1px solid #ddd;
 }
 #edit_project_form button {
-  background-color: #28a745; /* Zielony kolor tła */
+  background-color: #28a745;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -237,7 +245,7 @@ tr:not(:first-child):hover {
 }
 
 #edit_project_form button:hover {
-  background-color: #218838; /* Ciemniejszy zielony kolor tła przy najechaniu */
+  background-color: #218838;
 }
 #new-project {
   button {
