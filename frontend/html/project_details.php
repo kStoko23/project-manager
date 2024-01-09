@@ -14,6 +14,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projekt</title>
     <link rel="stylesheet" href="../../frontend/css/dashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
 <body>
     <div id="menu">
@@ -51,6 +52,7 @@ if (!isset($_SESSION['user_id'])) {
     <div id="task_container">
 
     </div>
+    <button id="downloadPDF">Download PDF</button>
     <div id="edit_project_form" style="display: none;">
         <form id="editForm">
             <input type="text" id="edit_project_name" name="project_name"><br>

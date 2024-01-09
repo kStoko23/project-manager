@@ -1,8 +1,8 @@
+let currentProject = {};
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const projectId = urlParams.get("id");
   const userId = parseInt(window.userId);
-  let currentProject = {};
 
   if (projectId) {
     fetchProjectDetails(projectId);
@@ -10,12 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const projectContainer = document.getElementById("project_container");
     projectContainer.innerHTML = "<p>Projekt nie istnieje</p>";
   }
+
+  document.getElementById("downloadPDF").addEventListener("click", downloadPDF);
 });
+
 function fetchProjectDetails(projectId) {
   fetch(`../../backend/php/get_project_by_id.php?id=${projectId}`)
     .then((response) => response.json())
     .then((project) => {
       if (project) {
+        currentProject = project;
         displayProjectDetails(project);
       } else {
         const projectContainer = document.getElementById("project_container");
@@ -180,4 +184,23 @@ function deleteProject() {
 function confirmDelete() {
   deleteProject();
   closeModal();
+}
+async function downloadPDF() {
+  const doc = new jsPDF();
+  let y = 10; // Start at the top of the page
+  const increment = 10; // Move down 10 units for each new line
+
+  doc.text(`Project Name: ${currentProject.project_name}`, 10, y);
+  y += increment;
+  doc.text(`Project Description: ${currentProject.description}`, 10, y);
+  y += increment;
+  doc.text(`Project start date: ${currentProject.start_date}`, 10, y);
+  y += increment;
+  doc.text(`Project end date: ${currentProject.end_date}`, 10, y);
+  y += increment;
+  doc.text(`Project status: ${currentProject.status}`, 10, y);
+  y += increment;
+  doc.text(`Project's manager ID: ${currentProject.project_manager_id}`, 10, y);
+
+  doc.save("project-details.pdf");
 }

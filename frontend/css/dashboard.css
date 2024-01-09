@@ -259,3 +259,18 @@ tr:not(:first-child):hover {
     cursor: pointer;
   }
 }
+#downloadPDF {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px auto; /* Change this line */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block; /* Add this line */
+}
+
+#downloadPDF:hover {
+  background-color: #218838;
+}
